@@ -1,0 +1,21 @@
+.services {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+
+        @include desktop {
+            gap: 30px;
+        }
+
+        @include tablet {
+            grid-template-columns: 1fr;
+            
+        }
+    }
+
+    &__banner {
+        margin-top: calc(var(--section-margin-top) - 15px);
+
+    }
+}

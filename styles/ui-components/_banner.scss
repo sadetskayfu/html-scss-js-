@@ -1,0 +1,49 @@
+.banner {
+    background-color: var(--color-gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--border-radius-big);
+
+    @include mobile {
+        
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: 26px;
+        max-width: 500px;
+        align-items: start;
+        padding: 60px;
+
+        @include mobile {
+            max-width: 100%;
+            padding: 50px;
+            row-gap: 20px;
+        } 
+
+        @include mobile-m {
+            align-items: center;
+        }
+    }
+
+    &__button {
+
+        @include mobile-m {
+            width: 100%;
+        } 
+    }
+
+    &__image {
+        margin-block: -23.5px;
+        margin-right: 130px;
+
+        @include tablet {
+            max-width: 40%;
+            height: auto;
+            margin-block: 0;
+            margin-right: 60px;
+        }
+    }
+}

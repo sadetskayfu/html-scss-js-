@@ -1,0 +1,75 @@
+.service-card {
+    min-height: 310px;
+    border: var(--border);
+    border-radius: var(--border-radius-big);
+    background-color: var(--color-gray);
+    padding: 50px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    margin-inline: auto;
+
+    @include desktop {
+        column-gap: 20px;
+    }
+
+    @include mobile-m {
+        display: grid;
+        grid-template-columns: auto auto;
+        row-gap: 27px;
+        padding: 40px;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+
+        @include mobile-m {
+            display: contents;
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        text-wrap: nowrap;
+
+        @include mobile-m {
+            grid-column: -1 / 1;
+        }
+    }
+
+    &__image {
+        align-self: center;
+
+        @include desktop {
+            max-width: 165px;
+            height: auto;
+        }
+
+        @include mobile-m {
+           
+        }
+    }
+
+    &__link {
+        
+        @include mobile-m {
+            align-self: end;
+        }
+    }
+    
+    &--dark {
+        background-color: var(--color-dark-accent);
+    }
+    &--light {
+        background-color: var(--color-gray);
+    }
+    &--accent {
+        background-color: var(--color-accent);
+    }
+}

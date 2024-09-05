@@ -1,0 +1,46 @@
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  padding-inline: var(--container-padding-x);
+  margin: auto;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.puddle-bg {
+    background-color: var(--color-accent);
+    padding-inline: 7px;
+    border-radius: var(--border-radius-small);
+
+    &--dark {
+      background-color: var(--color-light);
+    }
+    &--light {
+      background-color: var(--color-accent);
+    }
+    &--accent {
+      background-color: var(--color-light);
+    }
+}
+
+.logo {
+  transition-duration: var(--transition-duration);
+  flex-shrink: 0;
+
+  @include hover {
+      filter: drop-shadow(3px 1px 1px var(--color-accent))
+  }
+}
+
+.hidden-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.visible-mobile {
+  @include mobile-above {
+    display: none !important;
+  }
+}

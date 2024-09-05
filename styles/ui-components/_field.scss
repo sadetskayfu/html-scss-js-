@@ -1,0 +1,63 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 100%;
+
+    @include mobile {
+        row-gap: 10px;
+    }
+
+    &--dark-bg {
+        .field {
+            &__input {
+                background-color: transparent;
+                border-color: var(--color-light);
+                color: var(--color-light);
+
+                &:hover {
+                    box-shadow: 0 0 5px 1px var(--color-accent);
+                }
+                &:focus {
+                    box-shadow: 0 0 5px 1px var(--color-accent);
+                }
+            }
+        }
+    }
+   
+    &__input {
+        height: 60px;
+        padding-inline: 30px;
+        border: var(--border);
+        border-radius: var(--border-radius);
+        transition-duration: var(--transition-duration);
+
+        &::placeholder {
+            color: var(--color-gray-alt)
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 5px 1px var(--color-gray-alt);
+            
+        }
+
+        &:hover {
+            box-shadow: 0 0 5px 1px var(--color-gray-alt);
+        }
+
+        &--textarea {
+            padding-block: 18px;
+            height: 190px;
+            resize: none;
+
+            @include mobile {
+                height: 132px;
+            }
+        }
+    }
+
+    &__label {
+        @include fluid-text(16,14);
+    }
+}

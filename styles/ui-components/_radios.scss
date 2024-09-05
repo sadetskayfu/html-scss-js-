@@ -1,0 +1,13 @@
+.radios {
+    display: flex;
+    column-gap: 35px;
+
+    @include mobile {
+        column-gap: 60px;
+    }
+
+    @include mobile-m {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+}

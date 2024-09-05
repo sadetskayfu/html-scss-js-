@@ -1,0 +1,54 @@
+.review-card {
+    --reviewCardInlinePadding: 52px;
+    --reviewCardCornerWidth: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 50px;
+    color: var(--color-light);
+
+    &__body {
+        position: relative;
+        width: 606px;
+        padding: 48px var(--reviewCardInlinePadding);
+        border-radius: var(--border-radius-big);
+        border: var(--border);
+        border-color: var(--color-accent);
+
+        @include mobile {
+            width: 330px;
+            padding: 30px;
+        }
+
+        &::after {
+            @include square(var(--reviewCardCornerWidth));
+
+            content: '';
+            position: absolute;
+            border: inherit;
+            rotate: 45deg;
+            clip-path: polygon(100% 0, 0% 100%, 100% 100%); // https://bennettfeely.com/clippy/
+            left: var(--reviewCardInlinePadding);
+            top: 100%;
+            translate: 0 -50%;
+            background-color: var(--color-dark-accent);
+        }
+    }
+
+    &__footer {
+        @include fluid-text(20,18);
+        display: flex;
+        flex-direction: column;
+        padding-left: calc(var(--reviewCardInlinePadding) + var(--reviewCardCornerWidth) / 2)
+    }
+
+    &__name {
+        color: var(--color-accent);
+    }
+
+    &__name,
+    &__company {
+        font-style: normal;
+    }
+}

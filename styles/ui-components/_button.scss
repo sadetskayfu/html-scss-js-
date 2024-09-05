@@ -1,0 +1,36 @@
+.button {
+    @include flex-center(true);
+
+    padding-inline: 35px;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    font-size: 20px;
+    background-color: var(--color-dark-accent);
+    color: var(--color-light);
+    height: 68px;
+    cursor: pointer;
+    text-wrap: nowrap;
+
+    @include hover {
+        background-color: var(--color-accent);
+        color: var(--color-dark);
+    }
+
+    &--transparent {
+        background-color: transparent;
+        color: var(--color-dark);
+    }
+
+    &--accent {
+        background-color: var(--color-accent);
+        color: var(--color-dark);
+
+        @include hover {
+            background-color: var(--color-light);
+        }
+    }
+
+    @include mobile-m {
+        text-wrap: wrap;
+    }
+}

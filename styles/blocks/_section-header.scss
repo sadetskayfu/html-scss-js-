@@ -1,0 +1,20 @@
+.section-header {
+    margin-top: var(--section-margin-top);
+    margin-bottom: calc(var(--section-margin-top)/2);
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        column-gap: 40px;
+
+        @include mobile {
+            flex-direction: column;
+            row-gap: 30px;
+            text-align: center;
+        }
+    }
+
+    &__description {
+        max-width: 580px;
+    }
+}

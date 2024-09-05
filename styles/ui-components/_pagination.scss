@@ -1,0 +1,29 @@
+.pagination {
+
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        @include square(34px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-gray);
+        cursor: pointer;
+        transition-duration: var(--transition-duration);
+
+        @include hover {
+            color: var(--color-gray-alt)
+        }
+
+        &.active {
+            color: var(--color-accent);
+
+            svg {
+                transition-duration: inherit;
+                transform: scale(1.3);
+            }
+        }
+    }
+}

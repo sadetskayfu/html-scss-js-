@@ -1,0 +1,51 @@
+.button-burger {
+
+    @include reset-button;
+    @include square (48px);
+    @include hover {
+        background-color: var(--color-accent);
+    }
+
+    border-radius: var(--border-radius-small);
+    position: relative;
+    cursor: pointer;
+    
+    &::after,
+    &::before {
+        @include abs-center;
+
+        content: '';
+        width: 50%;
+        height: 2px;
+        background-color: var(--color-dark);
+        box-shadow: 0 -8px, 0 8px;
+        transition-duration: inherit;
+    }
+
+    &::before {
+        opacity: 0;
+        rotate: -45deg;
+    }
+
+    &--cross {
+        &::after,
+        &::before {
+            content: '';
+            @include abs-center;
+            width: 50%;
+            height: 2px;
+            background-color: var(--color-dark);
+            box-shadow: none;
+            transition-duration: inherit;
+        };
+
+        &::after {
+            rotate: -45deg;
+        };
+
+        &::before {
+            rotate: 45deg;
+            opacity: 1;
+        };
+    }
+}

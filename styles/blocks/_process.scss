@@ -1,0 +1,36 @@
+.process {
+    &__card-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        counter-reset: custom-counter;
+        list-style: none;
+
+        @include mobile {
+            row-gap: 20px;
+        }
+    }
+
+    &__card-item {
+        --counterContent: counter(custom-counter);
+
+        counter-increment: custom-counter;
+
+        &:nth-child(-n + 9) {
+            --counterContent: '0' counter(custom-counter);
+        }
+    }
+
+    .drop-down {
+        &__title {
+            &::before {
+                content: var(--counterContent);
+                font-size: 2em;
+    
+                @include mobile {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}

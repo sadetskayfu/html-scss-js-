@@ -1,0 +1,21 @@
+.soc1al-link {
+    @include square(38px);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    background-color: var(--color-dark);
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    &--light {
+        background-color: var(--color-light);
+        color: var(--color-dark);
+    }
+
+    @include hover {
+        box-shadow: var(--shadow-hover);
+    }
+
+}

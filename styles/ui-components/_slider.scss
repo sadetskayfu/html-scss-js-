@@ -1,0 +1,75 @@
+.slider {
+    background-color: var(--color-dark-accent);
+    border-radius: var(--border-radius-big);
+    padding-top: 84px;
+    padding-bottom: 68px;
+    min-height: 625px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 124px;
+    overflow-x: hidden;
+
+    @include mobile {
+        padding-top: 30px;
+        padding-bottom: 60px;
+        min-height: 554px;
+        row-gap: 60px;
+    }
+
+    &__list {
+        display: flex;
+        column-gap: 50px;
+    }
+
+    &__item {
+        filter: blur(2px);
+        user-select: none;
+        transition: inherit;
+        
+        &.active {
+            filter: blur(0);
+            user-select:auto;
+            
+        }
+    }
+
+    &__actions {
+        max-width: 564px;
+        padding-inline: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        column-gap: 20px;
+        justify-content: space-between;
+
+        &-button {
+            flex-shrink: 0
+        }
+    }
+}
+
+.slider-button  {
+    @include reset-button;
+    @include square(60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--color-gray);
+    cursor: pointer;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    @include hover {
+        box-shadow: 0 0 5px 1px var(--color-accent);
+    }
+
+    &--prev {
+        rotate: 180deg;
+    }
+}

@@ -1,0 +1,48 @@
+.team {
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+
+        @include desktop {
+            row-gap: 38px;
+        }
+    }
+
+    &__list {
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+
+        @include desktop {
+            gap: 30px;
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        @include mobile {
+            &:nth-last-child(-n +2) {
+                display: none;
+            }  
+        }
+    }
+
+    &__button {
+        align-self: end;
+        width: 270px;
+
+        @include mobile-m {
+            align-self: center;
+            width: 100%;
+        }
+    }
+}
