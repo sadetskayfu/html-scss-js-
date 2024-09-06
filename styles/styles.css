@@ -998,6 +998,16 @@ svg * {
 .slider__actions-button {
   flex-shrink: 0;
 }
+@media (max-width: 530px) {
+  .slider__actions {
+    padding-inline: 40px;
+  }
+}
+@media (max-width: 530px) {
+  .slider__pagination {
+    display: none;
+  }
+}
 
 .slider-button {
   padding: 0;

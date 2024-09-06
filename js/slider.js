@@ -126,24 +126,23 @@ const currentSlides = document.querySelectorAll(".slider__item");
 
 // Variables
 const totalCounterCloneSlide = 4
-let totalCounterSlide = currentSlides.length;
-//const sliderWindowWidth = +window.getComputedStyle(slider).width.slice(0, -2);
-let sliderWindowWidth = 1240
+const totalCounterSlide = currentSlides.length;
+const sliderWindowWidth = 1240 // The initial slider width
+const mobileSliderWindowWidth = 727 // The width of the slider where the slides are smaller
 let currentSliderWindowWidth = sliderWindowWidth
 let slideWidth = +window.getComputedStyle(slides[0]).width.slice(0, -2);
 let slideColumnGap = +window.getComputedStyle(slideList).columnGap.slice(0, -2);
-let slideListWidth = slideWidth * totalCounterSlide + slideColumnGap * (totalCounterSlide - 1);
 let translateX = slideWidth + slideColumnGap;
 let initTranslateX = slideWidth * 1.5 + slideColumnGap * 1.7
-let autoPlay = false
+let autoPlay = true
 let autoPlayInterval = 3000;
 
 // Setting the initial parameters
 const initSlider = () => {
   index = 1
-  slideList.style.width = slideListWidth + "px";
+
   slideList.style.transform = `translateX(-${initTranslateX}px)`
-  console.log(slideWidth)
+  
   currentSlides.forEach((item) => {
     item.classList.remove("active")
     })
@@ -154,7 +153,6 @@ const initSlider = () => {
 
   currentSlides[index + 1].classList.add("active")
   paginationItems[index - 1].classList.add("active")
-  console.log(initTranslateX)
 };
 
 // Adaptive initial translateX for different screen sizes
@@ -163,9 +161,20 @@ new ResizeObserver((changes) => {
   for (const change of changes) {
     currentSliderWindowWidth = change.contentRect.width
     
-    // initTranslateX = slideWidth * 0.668 + slideColumnGap * 1.7 + (sliderWindowWidth - currentSliderWindowWidth) / 2
-    initTranslateX = slideWidth * 1.5 + slideColumnGap * 1.7 + (sliderWindowWidth - currentSliderWindowWidth) / 2
-    initSlider()
+    if (currentSliderWindowWidth <= mobileSliderWindowWidth) {
+      slideWidth = +window.getComputedStyle(slides[0]).width.slice(0, -2);
+      translateX = slideWidth + slideColumnGap;
+      initTranslateX = slideWidth * 0.668 + slideColumnGap * 1.7 + (sliderWindowWidth - currentSliderWindowWidth) / 2
+      console.log('mobile')
+      initSlider()
+
+    } else {
+      slideWidth = +window.getComputedStyle(slides[0]).width.slice(0, -2);
+      translateX = slideWidth + slideColumnGap;
+      initTranslateX = slideWidth * 1.5 + slideColumnGap * 1.7 + (sliderWindowWidth - currentSliderWindowWidth) / 2
+      console.log('desktop')
+      initSlider()
+    } 
   }
   
 }).observe(slider)
